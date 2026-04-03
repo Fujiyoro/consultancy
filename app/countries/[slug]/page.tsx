@@ -1,3 +1,6 @@
+'use client';
+
+import { use } from 'react';
 import { getCountryData, getAllCountries } from '@/lib/countries-data';
 import { CountryHero } from '@/components/country-hero';
 import { CountryVisa } from '@/components/country-visa';
@@ -15,8 +18,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const country = getCountryData(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const country = getCountryData(resolvedParams.slug);
   if (!country) {
     return {
       title: 'Country Not Found',
@@ -35,8 +39,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function CountryPage({ params }: { params: { slug: string } }) {
-  const country = getCountryData(params.slug);
+export default function CountryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = use(params);
+  const country = getCountryData(resolvedParams.slug);
 
   if (!country) {
     return (

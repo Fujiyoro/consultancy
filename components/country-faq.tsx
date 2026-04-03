@@ -8,41 +8,39 @@ export function CountryFAQ({ country }: { country: CountryData }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="max-w-3xl mb-16">
-          <p className="text-primary/60 text-sm font-medium uppercase tracking-widest mb-4">
-            Questions & Answers
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 leading-tight">
+    <section className="py-20 md:py-28 bg-background border-t border-foreground/10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-2xl mb-16">
+          <p className="text-xs uppercase tracking-widest text-foreground/50 mb-4">FAQ</p>
+          <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6 leading-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-foreground/70">
+          <p className="text-base text-foreground/70 font-light">
             Find answers to common questions about studying in {country.name}.
           </p>
         </div>
 
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-3xl space-y-px">
           {country.faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-slate-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+              className="border-b border-foreground/10 last:border-b-0"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-start justify-between gap-4 p-6 bg-white hover:bg-slate-50 transition-colors text-left"
+                className="w-full flex items-start justify-between gap-4 py-6 text-left hover:bg-foreground/2 transition-colors duration-200"
               >
-                <span className="font-semibold text-foreground text-lg">{faq.question}</span>
+                <span className="text-base md:text-lg font-light text-foreground pr-4">{faq.question}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-primary flex-shrink-0 transition-transform duration-300 ${
+                  className={`w-4 h-4 text-foreground/40 flex-shrink-0 mt-1 transition-transform duration-300 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 />
               </button>
 
               {openIndex === index && (
-                <div className="px-6 pb-6 bg-slate-50 border-t border-slate-200">
-                  <p className="text-foreground/80 leading-relaxed">{faq.answer}</p>
+                <div className="pb-6 pr-8">
+                  <p className="text-foreground/70 font-light text-sm md:text-base leading-relaxed">{faq.answer}</p>
                 </div>
               )}
             </div>
@@ -50,13 +48,13 @@ export function CountryFAQ({ country }: { country: CountryData }) {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg border border-primary/20 p-8 text-center">
-          <h3 className="text-2xl font-bold text-foreground mb-2">Still have questions?</h3>
-          <p className="text-foreground/70 mb-6">
-            Our education consultants are here to help you navigate your journey to {country.name}.
+        <div className="mt-20 pt-20 border-t border-foreground/10 text-center">
+          <h3 className="text-2xl md:text-3xl font-light text-foreground mb-4">Still have questions?</h3>
+          <p className="text-foreground/70 font-light mb-8 max-w-lg mx-auto">
+            Our education consultants are here to help you navigate your journey.
           </p>
-          <button className="inline-block px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors">
-            Get Free Consultation
+          <button className="px-8 py-3 border border-foreground/30 text-foreground hover:bg-foreground hover:text-background transition-colors duration-300 text-sm font-medium tracking-wide">
+            Schedule Consultation
           </button>
         </div>
       </div>

@@ -30,15 +30,15 @@ export function CountryPageWrapper({ country }: { country: Country }) {
         <CountryFAQ country={country} />
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-primary to-secondary">
-          <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Ready to Start Your Journey?</h2>
-              <p className="text-xl text-white/90 mb-8">
-                Let our expert consultants guide you through every step of your application process to {country.name}.
+        <section className="py-20 md:py-28 bg-background border-t border-foreground/10">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">Ready to Begin?</h2>
+              <p className="text-base md:text-lg text-foreground/70 font-light mb-12">
+                Let our expert consultants guide you through every step of your journey to {country.name}.
               </p>
-              <button className="inline-block px-8 py-4 bg-accent text-primary font-bold rounded-lg hover:bg-accent/90 transition-colors text-lg">
-                Schedule Free Consultation
+              <button className="px-8 py-3 border border-foreground/30 text-foreground hover:bg-foreground hover:text-background transition-colors duration-300 text-sm font-medium tracking-wide">
+                Schedule Consultation
               </button>
             </div>
           </div>
@@ -46,36 +46,31 @@ export function CountryPageWrapper({ country }: { country: Country }) {
       </main>
 
       {/* Footer */}
-      <footer className="bg-primary text-white py-16 md:py-20 border-t border-primary/20">
+      <footer className="bg-background text-foreground py-16 md:py-20 border-t border-foreground/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent to-secondary flex items-center justify-center font-bold text-lg">
-                  E
-                </div>
-                <span className="font-bold text-xl">EduPath</span>
-              </div>
-              <p className="text-white/70 text-sm">Your trusted partner in international education.</p>
+              <p className="text-xs uppercase tracking-widest text-foreground/50 mb-4 font-light">EduPath</p>
+              <p className="text-foreground/70 text-sm font-light">Your trusted partner in international education.</p>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h4 className="font-bold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
+              <p className="text-xs uppercase tracking-widest text-foreground/50 mb-4 font-light">Navigation</p>
+              <ul className="space-y-3">
                 <li>
-                  <Link href="/" className="text-white/70 hover:text-white transition-colors text-sm">
+                  <Link href="/" className="text-foreground/70 hover:text-foreground transition-colors text-sm font-light">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#destinations" className="text-white/70 hover:text-white transition-colors text-sm">
+                  <Link href="/#destinations" className="text-foreground/70 hover:text-foreground transition-colors text-sm font-light">
                     Destinations
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#services" className="text-white/70 hover:text-white transition-colors text-sm">
+                  <Link href="/#services" className="text-foreground/70 hover:text-foreground transition-colors text-sm font-light">
                     Services
                   </Link>
                 </li>
@@ -84,15 +79,15 @@ export function CountryPageWrapper({ country }: { country: Country }) {
 
             {/* Contact */}
             <div>
-              <h4 className="font-bold mb-4">Contact</h4>
-              <ul className="space-y-2">
+              <p className="text-xs uppercase tracking-widest text-foreground/50 mb-4 font-light">Contact</p>
+              <ul className="space-y-3">
                 <li>
-                  <a href="mailto:contact@edupath.com" className="text-white/70 hover:text-white transition-colors text-sm">
+                  <a href="mailto:contact@edupath.com" className="text-foreground/70 hover:text-foreground transition-colors text-sm font-light">
                     contact@edupath.com
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+1234567890" className="text-white/70 hover:text-white transition-colors text-sm">
+                  <a href="tel:+1234567890" className="text-foreground/70 hover:text-foreground transition-colors text-sm font-light">
                     +1 234 567 890
                   </a>
                 </li>
@@ -101,15 +96,15 @@ export function CountryPageWrapper({ country }: { country: Country }) {
 
             {/* Legal */}
             <div>
-              <h4 className="font-bold mb-4">Legal</h4>
-              <ul className="space-y-2">
+              <p className="text-xs uppercase tracking-widest text-foreground/50 mb-4 font-light">Legal</p>
+              <ul className="space-y-3">
                 <li>
-                  <a href="#" className="text-white/70 hover:text-white transition-colors text-sm">
+                  <a href="#" className="text-foreground/70 hover:text-foreground transition-colors text-sm font-light">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-white/70 hover:text-white transition-colors text-sm">
+                  <a href="#" className="text-foreground/70 hover:text-foreground transition-colors text-sm font-light">
                     Terms of Service
                   </a>
                 </li>
@@ -117,9 +112,9 @@ export function CountryPageWrapper({ country }: { country: Country }) {
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-8">
-            <p className="text-white/60 text-center text-sm">
-              © 2024 EduPath. All rights reserved. Your trusted education consultancy partner.
+          <div className="border-t border-foreground/10 pt-8">
+            <p className="text-foreground/50 text-center text-xs font-light">
+              © 2024 EduPath. All rights reserved.
             </p>
           </div>
         </div>

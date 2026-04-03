@@ -2,10 +2,12 @@
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const destinations = [
   {
     name: 'United States',
+    slug: 'united-states',
     universities: 2500,
     image: 'https://images.unsplash.com/photo-1508433957232-3107f5fd5995?q=80&w=886&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Ds',
     highlights: ['Harvard', 'MIT', 'Stanford'],
@@ -13,6 +15,7 @@ const destinations = [
   },
   {
     name: 'Australia',
+    slug: 'australia',
     universities: 43,
     image: 'https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Ds',
     highlights: ['Melbourne', 'Sydney', 'ANU'],
@@ -20,14 +23,12 @@ const destinations = [
   },
   {
     name: 'Japan',
+    slug: 'japan',
     universities: 100,
     image: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     highlights: ['Todai', 'Kyoto', 'Osaka'],
     color: 'from-red-500 to-orange-400',
   },
- 
-
- 
 ];
 
 export function Destinations() {
@@ -88,13 +89,15 @@ export function Destinations() {
                   </div>
                 </div>
 
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full border-primary text-primary hover:bg-primary hover:text-white font-medium transition-all duration-300"
-                >
-                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <Link href={`/countries/${destination.slug}`}>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-white font-medium transition-all duration-300"
+                  >
+                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}

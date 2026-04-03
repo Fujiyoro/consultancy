@@ -6,7 +6,7 @@ export interface CountryData {
   description: string;
   overview: string;
   highlights: string[];
-  universities: number;
+  universityCount: number;
   color: string;
 
   visa: {
@@ -57,7 +57,7 @@ export const countriesData: Record<string, CountryData> = {
     description: 'Home to world-renowned universities and cutting-edge research',
     overview: 'The United States is a global leader in higher education, offering diverse academic opportunities across all disciplines. With over 2,500 accredited universities, students can find programs tailored to their interests and career goals.',
     highlights: ['Harvard', 'MIT', 'Stanford', 'Yale', 'Princeton'],
-    universities: 2500,
+    universityCount: 2500,
     color: 'from-blue-600 to-blue-400',
 
     visa: {
@@ -191,7 +191,7 @@ export const countriesData: Record<string, CountryData> = {
     description: 'World-class education with exceptional quality of life',
     overview: 'Australia offers high-quality education in a vibrant, multicultural environment. With 43 universities including the prestigious Go8 group, Australia provides excellent opportunities across all academic disciplines.',
     highlights: ['Melbourne', 'Sydney', 'ANU', 'UNSW', 'Monash'],
-    universities: 43,
+    universityCount: 43,
     color: 'from-yellow-600 to-orange-500',
 
     visa: {
@@ -326,7 +326,7 @@ export const countriesData: Record<string, CountryData> = {
     description: 'Blend of tradition and cutting-edge innovation',
     overview: 'Japan is an excellent destination for international students seeking a unique education experience. With over 100 universities offering high-quality education at affordable costs, Japan provides opportunities in engineering, technology, and humanities.',
     highlights: ['Todai', 'Kyoto', 'Osaka', 'Tokyo Tech', 'Waseda'],
-    universities: 100,
+    universityCount: 100,
     color: 'from-red-500 to-orange-400',
 
     visa: {

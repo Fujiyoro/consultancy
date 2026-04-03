@@ -37,7 +37,7 @@ export function CountryHero({ country }: { country: CountryData }) {
           {/* Quick Stats */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-12">
             <div>
-              <p className="text-accent text-3xl font-bold">{country.universities}+</p>
+              <p className="text-accent text-3xl font-bold">{country.universityCount}+</p>
               <p className="text-white/80 text-sm mt-2">Universities</p>
             </div>
             <div>

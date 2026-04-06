@@ -5,61 +5,60 @@ import { motion } from "motion/react";
 
 const testimonials = [
   {
-    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
+    text: "The entire process from university selection to visa approval was smooth and stress-free. Highly professional team.",
     image: "https://randomuser.me/api/portraits/women/1.jpg",
     name: "Briana Patton",
-    role: "Operations Manager",
+    role: "Student – Australia",
   },
   {
-    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
+    text: "They guided me step by step and helped me secure admission in the UK. Everything was clearly explained.",
     image: "https://randomuser.me/api/portraits/men/2.jpg",
     name: "Bilal Ahmed",
-    role: "IT Manager",
+    role: "Student – UK",
   },
   {
-    text: "dami xha.",
+    text: "Dami cha, ekdam helpful consultancy. Visa pani easily approve bhayo.",
     image: "https://randomuser.me/api/portraits/women/3.jpg",
     name: "Saman Malik",
-    role: "Customer Support Lead",
+    role: "Student – Canada",
   },
   {
-    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+    text: "I was confused about my future, but their counseling helped me choose the right path. Now I’m studying in the USA.",
     image: "https://randomuser.me/api/portraits/men/4.jpg",
     name: "Omar Raza",
-    role: "CEO",
+    role: "Student – USA",
   },
   {
-    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+    text: "Very supportive team. They handled my documentation and visa process perfectly.",
     image: "https://randomuser.me/api/portraits/women/5.jpg",
     name: "Zainab Hussain",
-    role: "Project Manager",
+    role: "Student – Australia",
   },
   {
-    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
+    text: "From application to final visa, everything was managed smoothly. Great experience overall.",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
     name: "Aliza Khan",
-    role: "Business Analyst",
+    role: "Student – Canada",
   },
   {
-    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
+    text: "They helped me shortlist universities based on my budget and profile. Highly recommended!",
     image: "https://randomuser.me/api/portraits/men/7.jpg",
     name: "Farhan Siddiqui",
-    role: "Marketing Director",
+    role: "Student – UK",
   },
   {
-    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
+    text: "The counselors were friendly and always available. I never felt lost during the process.",
     image: "https://randomuser.me/api/portraits/women/8.jpg",
     name: "Sana Sheikh",
-    role: "Sales Manager",
+    role: "Student – USA",
   },
   {
-    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
+    text: "Got my visa approved on the first attempt. Their preparation and guidance made a big difference.",
     image: "https://randomuser.me/api/portraits/men/9.jpg",
     name: "Hassan Ali",
-    role: "E-commerce Manager",
+    role: "Student – Australia",
   },
 ];
-
 
 const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);

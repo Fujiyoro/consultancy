@@ -6,23 +6,28 @@ import { Services } from "@/components/services";
 import { Header } from "@/components/header-3";
 import AboutDemo from "@/components/aboutdemo";
 import VidMed from "@/components/vidmed";
-import { StaggerTestimonials } from "@/components/stagger-testimonials";
+
 import FloatingServices from "@/components/popular";
 import Banner from "@/components/banner";
 import FAQPage from "@/components/faq";
 import { Destinations } from "@/components/destination";
 import { MapPin } from "lucide-react";
+import { Contact } from "@/components/contact";
+import { ContentSectionVariant1 } from "@/components/ui/content-section2";
 
 export default function Home() {
   return (
     <>
       <VidMed />
       <FloatingServices />
-      <Banner />
+      <div className="px-10 bg-white [@media(max-width:500px)]:px-3">
+         <Banner />
+        </div>
+     
       <section className="mt-20">
         <section className="container mx-auto">
           <section className="py-0">
-            <div className="mx-auto px-6 py-0 ">
+            <div className="mx-auto px-6 py-0  [@media(max-width:500px)]:px-0">
               <ContentSectionVariant2
                 image="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 title="Trusted Education Consultancy in Nepal for Study Abroad Success"
@@ -30,37 +35,37 @@ export default function Home() {
                 number="01"
               >
                 <p>
-                  Leverage advanced analytics and machine learning to uncover
-                  hidden opportunities and mitigate risks. Our proprietary
-                  frameworks transform raw data into actionable strategies that
-                  deliver measurable results.
+                  As a leading education consultancy in Nepal, we help students
+                  turn their dreams of studying abroad into reality. Our expert
+                  counselors provide personalized guidance to match you with the
+                  right universities, courses, and destinations.
                 </p>
                 <p>
-                  From predictive modeling to real-time dashboards, we equip
-                  your leadership team with the insights needed to make
-                  confident decisions in uncertain times.
+                  From application preparation to visa processing, we ensure a
+                  smooth, transparent, and stress-free experience—so you can
+                  focus on building a successful global future.
                 </p>
               </ContentSectionVariant2>
             </div>
           </section>
 
           <section>
-            <div className="mx-auto px-6 pb-24">
+            <div className="mx-auto px-6 pb-24 [@media(max-width:500px)]:px-0">
               <ContentSectionVariant2
                 image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                title="Data-Driven Decision Making"
+                title="Personalized Guidance & Smart Planning"
                 number="02"
               >
                 <p>
-                  Leverage advanced analytics and machine learning to uncover
-                  hidden opportunities and mitigate risks. Our proprietary
-                  frameworks transform raw data into actionable strategies that
-                  deliver measurable results.
+                  Make informed decisions about your future with expert guidance
+                  tailored to your academic goals, budget, and career
+                  aspirations. We help you choose the right country, university,
+                  and program with clarity and confidence.
                 </p>
                 <p>
-                  From predictive modeling to real-time dashboards, we equip
-                  your leadership team with the insights needed to make
-                  confident decisions in uncertain times.
+                  From shortlisting universities to preparing strong
+                  applications, our structured approach ensures you stay ahead
+                  at every step of your study abroad journey.
                 </p>
               </ContentSectionVariant2>
             </div>
@@ -69,10 +74,34 @@ export default function Home() {
       </section>
 
       <Services />
+      {/* Variant 1: Layered Card Design */}
+      <section className="border-b border-border/50">
+        <div className="container mx-auto px-6 py-24">
+          <ContentSectionVariant1
+            image="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?q=80&w=811&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            title="Your Global Education Journey Starts Here"
+          >
+            <p>
+              We guide ambitious students in achieving their dreams of studying
+              abroad by providing personalized support at every step. From
+              selecting the right university to navigating complex application
+              processes, we ensure a smooth and confident journey.
+            </p>
+            <p>
+              With expert counseling, up-to-date insights, and a student-first
+              approach, we help you unlock global opportunities and build a
+              future without boundaries.
+            </p>
+          </ContentSectionVariant1>
+        </div>
+      </section>
       <Destinations />
+
       <FAQPage />
 
       <Testimonials />
+
+      <Contact />
 
       <main className="min-h-screen bg-white mb-20">
         {/* Header */}
@@ -108,11 +137,9 @@ export default function Home() {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent to-secondary flex items-center justify-center font-bold text-lg">
-                  E
-                </div>
-                <span className="font-bold text-xl">EduPath</span>
+                <img src="logo.png" alt="Company Logo" className="h-10" />
               </div>
+
               <p className="text-white/70 text-sm">
                 Your trusted partner in international education.
               </p>

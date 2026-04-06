@@ -60,10 +60,11 @@ export function Header() {
 					scrolled,
 			})}
 		>
-			<nav className="mx-auto flex h-14 w-full container items-center justify-between px-4">
+			<nav className="mx-auto flex h-14 w-full  items-center justify-between px-4 ">
 				<div className="flex items-center gap-5">
 					<a href="#" className="hover:bg-accent rounded-md p-2">
-						<WordmarkIcon className="h-4" />
+						{/* <WordmarkIcon className="h-4" /> */}
+						<img src = "/logo.png" alt="Company Logo" className="h-10" />
 					</a>
 					<NavigationMenu className="hidden md:flex">
 						<NavigationMenuList>
@@ -123,7 +124,7 @@ export function Header() {
 					</NavigationMenu>
 				</div>
 				<div className="hidden items-center gap-2 md:flex">
-					<Button variant="outline">Sign In</Button>
+					{/* <Button variant="outline">Sign In</Button> */}
 					<Button>Get Started</Button>
 				</div>
 				<Button
@@ -155,9 +156,9 @@ export function Header() {
 					</div>
 				</NavigationMenu>
 				<div className="flex flex-col gap-2">
-					<Button variant="outline" className="w-full bg-transparent">
+					{/* <Button variant="outline" className="w-full bg-transparent">
 						Sign In
-					</Button>
+					</Button> */}
 					<Button className="w-full">Get Started</Button>
 				</div>
 			</MobileMenu>

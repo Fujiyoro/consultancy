@@ -62,9 +62,19 @@ export function Services() {
       className="py-24 bg-white bg-no-repeat bg-cover relative overflow-hidden"
       style={{}}
     >
-      <div className="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-primary to-primary/70 shadow-2xl flex items-center justify-center absolute right-[-90] top-[-140]"/>
-      <img src = "plane.png" className="absolute right-[-300] top-[-10]"></img>
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+     <div className="absolute w-96 h-96 right-[-160] top-[-160]">
+    {/* Blue Circle */}
+    <div className="absolute inset-0 w-96 h-96 rounded-full bg-gradient-to-br from-primary to-primary/70 shadow-2xl "></div>
+
+    {/* Plane inside the circle */}
+    <img 
+      src="/plane.png" 
+      className="absolute top-40 left-[-30] w-[400]"
+    />
+  </div>
+
+
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 [@media(max-width:1023px)]:mt-30">
         {/* Header - Left aligned */}
         <div className="max-w-3xl mb-20">
           <p className="text-primary/60 text-sm font-medium uppercase tracking-widest mb-4">

@@ -47,7 +47,7 @@ export function ContentSectionVariant2({ image, title, reverse = false,number, c
 
       {/* Content Section */}
       <div
-        className={`relative p-12 lg:p-16 flex flex-col justify-center bg-gradient-to-br from-background via-background to-muted/30 ${
+        className={`relative p-12 lg:p-16 flex flex-col justify-center bg-gradient-to-br from-background via-background to-muted/30 [@media(max-width:500px)]:px-3 ${
           reverse ? "lg:order-1" : "lg:order-2"
         }`}
       >
@@ -59,16 +59,18 @@ export function ContentSectionVariant2({ image, title, reverse = false,number, c
         {/* Section label */}
         <div className="inline-flex items-center gap-2 mb-6">
           <div className="w-8 h-px bg-primary" />
-          <span className="text-xs font-medium tracking-widest text-primary uppercase">Expertise</span>
+          <span className="text-xs font-medium tracking-widest text-primary uppercase" data-aos="fade-up" data-aos-delay="100">Expertise</span>
         </div>
 
         {/* Title */}
-        <h2 className="text-4xl lg:text-5xl font-light text-foreground leading-[1.15] tracking-tight mb-6 text-balance">
+        <h2 className="text-4xl lg:text-5xl font-light text-foreground leading-[1.15] tracking-tight mb-6 text-balance" data-aos="fade-up" data-aos-delay="200">
           {title}
         </h2>
 
         {/* Content */}
-        <div className="space-y-5 text-base text-muted-foreground leading-relaxed mb-8">{children}</div>
+        <div className="space-y-5 text-base text-muted-foreground leading-relaxed mb-8" data-aos="fade-up" data-aos-delay="300">
+          {children}
+        </div>
 
         {/* CTA Link */}
         <button

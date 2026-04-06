@@ -12,35 +12,35 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     id: 'faq-1',
-    question: 'What is this product?',
-    answer: 'This is a comprehensive solution designed to help you streamline your workflow and achieve your goals more efficiently. Our product combines cutting-edge technology with user-friendly design to deliver exceptional results.',
+    question: 'Which countries can I apply to?',
+    answer: 'We help students apply to top destinations like Australia, Canada, the UK, and the USA. Our counselors guide you in choosing the best country based on your academic background, budget, and career goals.',
   },
   {
     id: 'faq-2',
-    question: 'How do I get started?',
-    answer: 'Getting started is easy! Simply sign up for an account, follow our onboarding guide, and you\'ll be ready to use all features within minutes. We provide step-by-step tutorials and documentation to help you every step of the way.',
+    question: 'How do I get started with my study abroad journey?',
+    answer: 'Getting started is simple. Book a consultation with our experts, and we will assess your profile, suggest suitable universities, and guide you step by step through the entire process.',
   },
   {
     id: 'faq-3',
-    question: 'What are the pricing options?',
-    answer: 'We offer flexible pricing plans to suit different needs. Our plans include a free tier for individuals, professional plans for small teams, and enterprise solutions for larger organizations. Visit our pricing page for detailed information.',
+    question: 'Do you help with university applications?',
+    answer: 'Yes, we provide complete support for university applications including document preparation, SOP guidance, and application submission to maximize your chances of acceptance.',
   },
   {
     id: 'faq-4',
-    question: 'Do you offer customer support?',
-    answer: 'Yes! We provide comprehensive customer support through multiple channels including email, live chat, and our knowledge base. Our support team is available 24/7 to help you with any questions or issues.',
+    question: 'Will you assist with visa processing?',
+    answer: 'Absolutely. We offer full visa guidance including documentation, financial preparation, and interview support to ensure a high success rate.',
   },
   {
     id: 'faq-5',
-    question: 'Can I cancel my subscription?',
-    answer: 'Absolutely. You can cancel your subscription anytime from your account settings. There are no long-term contracts or hidden fees. Your cancellation will take effect at the end of your billing cycle.',
+    question: 'Are there any consultation fees?',
+    answer: 'We offer affordable and transparent pricing. In many cases, our counseling services are free when you apply through our partnered universities. Contact us for detailed information.',
   },
   {
     id: 'faq-6',
-    question: 'Is my data secure?',
-    answer: 'Security is our top priority. We use industry-standard encryption, regular security audits, and comply with international data protection regulations to ensure your information is always safe.',
+    question: 'Can you help me find scholarships?',
+    answer: 'Yes, we guide you in exploring scholarship opportunities and help you prepare strong applications to improve your chances of receiving financial aid.',
   },
-]
+];
 
 function FAQAccordion() {
   const [openId, setOpenId] = useState<string | null>('faq-1')
@@ -97,30 +97,13 @@ export default function FAQPage() {
       </header>
 
       {/* FAQ Content */}
-      <div className="mx-auto container px-6 py-12">
+      <div className="mx-auto container md:px-6 py-12">
         <FAQAccordion />
       </div>
 
       {/* CTA Section */}
 
-       <div className="container mx-auto bg-blue-500  mb-20 rounded-lg relative overflow-hidden py-10">
-        <div className="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-primary to-primary/70 shadow-2xl flex items-center justify-center absolute right-[-90] top-[-220]" />
-        <img src="circle_top_right.png" className="absolute right-[160] top-[-50]" alt="circle decoration" />
-        <img src="top_left.png" className="absolute left-[-40] top-[-50]" alt="top left decoration" />
-        <img src="top_left_2.png" className="absolute left-[-100] top-[-50]" alt="top left decoration 2" />
-        
-         <div className="mx-auto max-w-2xl px-6 text-center">
-          <h2 className="text-2xl font-semibold text-white">
-            Still have questions?
-          </h2>
-          <p className="mt-3 text-white">
-            Can&apos;t find the answer you&apos;re looking for? Our support team is here to help.
-          </p>
-          <button className="mt-6 rounded-lg bg-primary px-8 py-3 font-medium text-primary-foreground transition-opacity hover:opacity-90">
-            Contact Support
-          </button>
-        </div>
-      </div>
+     c
 
       
     </main>

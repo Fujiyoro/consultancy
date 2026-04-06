@@ -7,7 +7,7 @@ export default function VidMed(){
   
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative h-[100vh] w-full overflow-hidden bg-red-500 ">
   <Header />
 
   <video
@@ -19,8 +19,8 @@ export default function VidMed(){
     playsInline
   />
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/40" />
+
+  <div className="absolute inset-0 bg-black/40"  />
 
   {/* Content */}
   <div className="relative z-10 flex h-full items-center justify-center text-center px-6">

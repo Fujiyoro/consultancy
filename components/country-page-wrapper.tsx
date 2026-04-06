@@ -3,6 +3,7 @@
 import { Header } from '@/components/header-3';
 import { CountryHero } from '@/components/country-hero';
 import { CountryVisa } from '@/components/country-visa';
+import { CountryDetails } from '@/components/country-details';
 
 import { CountryFAQ } from '@/components/country-faq'
 import Link from 'next/link';
@@ -25,6 +26,7 @@ export function CountryPageWrapper({ country }: { country: Country }) {
         <CountryHero country={country} />
      
         <CountryVisa country={country} />
+        <CountryDetails country={country} />
        
         <CountryFAQ country={country} />
 

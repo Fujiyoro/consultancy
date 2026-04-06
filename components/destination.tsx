@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const destinations = [
   {
@@ -88,13 +89,15 @@ export function Destinations() {
                   </div>
                 </div>
 
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full border-primary text-primary hover:bg-primary hover:text-white font-medium transition-all duration-300"
-                >
-                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <Link href={`/countries/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-white font-medium transition-all duration-300"
+                  >
+                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}

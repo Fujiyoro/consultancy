@@ -1,485 +1,330 @@
 export interface CountryData {
-  id: string;
-  name: string;
   slug: string;
-  image: string;
-  description: string;
-  overview: string;
-  highlights: string[];
-  universityCount: number;
-  color: string;
-
-  whyStudy?: Array<{
-    icon: string;
-    title: string;
-    description: string;
-  }>;
-
-  visa: {
-    title: string;
-    types: Array<{
-      name: string;
-      duration: string;
-      description: string;
-      requirements: string[];
-    }>;
-  };
-
-  process: {
-    title: string;
-    steps: Array<{
-      number: number;
-      title: string;
-      description: string;
-      duration: string;
-    }>;
-  };
-
+  name: string;
+  flag: string;
+  tagline: string;
+  heroDescription: string;
+  whyStudy: { title: string; description: string; icon: string }[];
   costs: {
     tuitionRange: string;
-    livingCost: string;
-    totalEstimate: string;
-    scholarships: string;
-    note?: string;
+    livingRange: string;
+    note: string;
   };
-
-  requirements?: string[];
-
-  visaSteps?: Array<{
-    step: number;
-    title: string;
-    description: string;
-  }>;
-
-  intakes?: Array<{
-    name: string;
-    months: string;
-    popularity: string;
-  }>;
-
-  universities: Array<{
-    name: string;
-    ranking: string;
-    specialization: string;
-  }>;
-
-  faqs: Array<{
-    question: string;
-    answer: string;
-  }>;
+  requirements: string[];
+  visaSteps: { step: number; title: string; description: string }[];
+  intakes: { name: string; months: string; popularity: string }[];
+  workOpportunities: {
+    partTime: string;
+    postStudy: string;
+    details: string[];
+  };
 }
 
-export const countriesData: Record<string, CountryData> = {
-  'united-states': {
-    id: 'united-states',
-    name: 'United States',
-    slug: 'united-states',
-    image: 'https://images.unsplash.com/photo-1508433957232-3107f5fd5995?q=80&w=886&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Ds',
-    description: 'Home to world-renowned universities and cutting-edge research',
-    overview: 'The United States is a global leader in higher education, offering diverse academic opportunities across all disciplines. With over 2,500 accredited universities, students can find programs tailored to their interests and career goals.',
-    highlights: ['Harvard', 'MIT', 'Stanford', 'Yale', 'Princeton'],
-    universityCount: 2500,
-    color: 'from-blue-600 to-blue-400',
-
-    visa: {
-      title: 'Student Visa (F-1)',
-      types: [
-        {
-          name: 'F-1 Visa',
-          duration: '4-6 years',
-          description: 'The most common visa for international students pursuing full-time academic studies',
-          requirements: [
-            'Valid passport',
-            'I-20 form from the university',
-            'Proof of financial support ($20,000-$35,000 per year)',
-            'Evidence of ties to home country',
-            'SEVIS registration fee payment',
-          ],
-        },
-        {
-          name: 'Optional Practical Training (OPT)',
-          duration: '12-36 months',
-          description: 'Work authorization after graduation in your field of study',
-          requirements: [
-            'Active F-1 status',
-            'Job offer related to your major',
-            'Application through USCIS',
-          ],
-        },
-      ],
-    },
-
-    process: {
-      title: 'Application Process',
-      steps: [
-        {
-          number: 1,
-          title: 'Prepare Documents',
-          description: 'Gather academic transcripts, test scores (SAT/ACT), and English proficiency (TOEFL/IELTS)',
-          duration: '2-3 months',
-        },
-        {
-          number: 2,
-          title: 'University Selection & Application',
-          description: 'Research universities and submit applications through Common App or individual portals',
-          duration: '3-4 months',
-        },
-        {
-          number: 3,
-          title: 'Admission & Financial Aid',
-          description: 'Receive admission decisions and review financial aid packages',
-          duration: '2-3 months',
-        },
-        {
-          number: 4,
-          title: 'Visa Application',
-          description: 'Apply for F-1 visa at the US embassy with I-20 form and supporting documents',
-          duration: '1-2 months',
-        },
-        {
-          number: 5,
-          title: 'Travel & Enrollment',
-          description: 'Complete visa interview, arrange travel, and enroll in your program',
-          duration: '2 weeks',
-        },
-      ],
-    },
-
+export const countries: CountryData[] = [
+  {
+    slug: "australia",
+    name: "Australia",
+    flag: "🇦🇺",
+    tagline: "World-class education meets adventure",
+    heroDescription: "Home to 7 of the world's top 100 universities, Australia offers a vibrant multicultural experience with excellent post-study work opportunities.",
+    whyStudy: [
+      { title: "Top-Ranked Universities", description: "7 universities in global top 100 including University of Melbourne, ANU, and University of Sydney.", icon: "GraduationCap" },
+      { title: "Post-Study Work Visa", description: "2–4 years post-study work visa depending on your qualification level.", icon: "Briefcase" },
+      { title: "Multicultural Environment", description: "One of the most diverse countries with students from 190+ nationalities.", icon: "Globe" },
+      { title: "Scholarship Opportunities", description: "Australia Awards, Destination Australia, and university-specific scholarships available.", icon: "Award" },
+    ],
     costs: {
-      tuitionRange: '$20,000 - $60,000 per year',
-      livingCost: '$12,000 - $20,000 per year',
-      totalEstimate: '$32,000 - $80,000 per year',
-      scholarships: 'Merit and need-based scholarships available from universities',
+      tuitionRange: "NPR 20,00,000 – NPR 50,00,000/year",
+      livingRange: "NPR 15,00,000 – NPR 25,00,000/year",
+      note: "Costs vary by city — Melbourne & Sydney are more expensive than Adelaide or Brisbane.",
     },
-
-    universities: [
-      {
-        name: 'Harvard University',
-        ranking: '#1 Worldwide',
-        specialization: 'Medicine, Business, Law',
-      },
-      {
-        name: 'MIT',
-        ranking: '#2 Worldwide',
-        specialization: 'Engineering, Technology, Science',
-      },
-      {
-        name: 'Stanford University',
-        ranking: '#3 Worldwide',
-        specialization: 'Technology, Business, Engineering',
-      },
-      {
-        name: 'Yale University',
-        ranking: '#4 Worldwide',
-        specialization: 'Law, Medicine, Humanities',
-      },
-      {
-        name: 'Princeton University',
-        ranking: '#5 Worldwide',
-        specialization: 'Engineering, Science, Mathematics',
-      },
+    requirements: [
+      "Academic transcripts and certificates (SLC/SEE, +2, Bachelor's)",
+      "IELTS 6.0–6.5 overall (or PTE 50–58)",
+      "Statement of Purpose (SOP)",
+      "Letters of Recommendation (LOR)",
+      "Financial proof (GTE requirement)",
+      "Valid passport",
     ],
-
-    faqs: [
-      {
-        question: 'What is the minimum TOEFL score required?',
-        answer: 'Most US universities require a minimum TOEFL score of 80-100 on the iBT. However, scores may vary by institution and program.',
-      },
-      {
-        question: 'Can I work while studying in the US?',
-        answer: 'Yes, F-1 students can work up to 20 hours per week during the school term on-campus. Off-campus work is available through CPT and OPT programs.',
-      },
-      {
-        question: 'How much does a US education cost?',
-        answer: 'Annual costs range from $32,000 to $80,000 including tuition, fees, accommodation, and living expenses. Many universities offer scholarships to international students.',
-      },
-      {
-        question: 'What is the processing time for an F-1 visa?',
-        answer: 'The visa processing time is typically 2-4 weeks from the application date at the US embassy.',
-      },
-      {
-        question: 'Can I bring my family to the US?',
-        answer: 'Yes, your spouse and unmarried children under 21 can apply for dependent visas (F-2), though they cannot work or study.',
-      },
+    visaSteps: [
+      { step: 1, title: "Choose Course & University", description: "Research and apply to CRICOS-registered institutions." },
+      { step: 2, title: "Receive CoE", description: "Get your Confirmation of Enrolment after accepting the offer." },
+      { step: 3, title: "Arrange OSHC", description: "Purchase Overseas Student Health Cover for the duration of your visa." },
+      { step: 4, title: "Lodge Visa Application", description: "Apply for Student Visa (Subclass 500) online via ImmiAccount." },
+      { step: 5, title: "Biometrics & Interview", description: "Attend biometrics appointment and possible interview at VFS." },
+      { step: 6, title: "Visa Decision", description: "Processing takes 4–8 weeks. You'll receive the decision via email." },
     ],
+    intakes: [
+      { name: "February (Semester 1)", months: "Feb – Jun", popularity: "Major" },
+      { name: "July (Semester 2)", months: "Jul – Nov", popularity: "Major" },
+      { name: "November (Trimester)", months: "Nov – Feb", popularity: "Minor" },
+    ],
+    workOpportunities: {
+      partTime: "48 hours per fortnight during semester",
+      postStudy: "2–4 years post-study work visa (PSWV)",
+      details: [
+        "Unlimited work hours during semester breaks",
+        "Bachelor's graduates get 2-year work visa",
+        "Master's graduates get 3-year work visa",
+        "PhD graduates get 4-year work visa",
+        "Pathway to Permanent Residency through skilled migration",
+      ],
+    },
   },
-
-  'australia': {
-    id: 'australia',
-    name: 'Australia',
-    slug: 'australia',
-    image: 'https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Ds',
-    description: 'World-class education with exceptional quality of life',
-    overview: 'Australia offers high-quality education in a vibrant, multicultural environment. With 43 universities including the prestigious Go8 group, Australia provides excellent opportunities across all academic disciplines.',
-    highlights: ['Melbourne', 'Sydney', 'ANU', 'UNSW', 'Monash'],
-    universityCount: 43,
-    color: 'from-yellow-600 to-orange-500',
-
-    visa: {
-      title: 'Student Visa (Subclass 500)',
-      types: [
-        {
-          name: 'Student Visa (Subclass 500)',
-          duration: 'Duration of course + 6 months',
-          description: 'Primary visa for international students studying full-time at Australian institutions',
-          requirements: [
-            'Enrolment confirmation from registered course',
-            'Proof of financial support (AUD $20,290 per year)',
-            'English language proficiency (IELTS 6.0 or equivalent)',
-            'Health and character requirements',
-            'GTE (Genuine Temporary Entrant) letter',
-          ],
-        },
-        {
-          name: 'Graduate Temporary Visa (Subclass 485)',
-          duration: '18 months to 3 years',
-          description: 'Work visa for graduates who want to gain Australian work experience',
-          requirements: [
-            'Recently completed Australian qualification',
-            'English language requirements',
-            'Character and health requirements',
-            'Points test for some visa streams',
-          ],
-        },
-      ],
-    },
-
-    process: {
-      title: 'Application Process',
-      steps: [
-        {
-          number: 1,
-          title: 'Choose Your Course',
-          description: 'Select an accredited course from a registered provider on the CRICOS list',
-          duration: '2-4 weeks',
-        },
-        {
-          number: 2,
-          title: 'Submit University Application',
-          description: 'Apply directly to the university with academic transcripts and English test scores',
-          duration: '2-4 weeks',
-        },
-        {
-          number: 3,
-          title: 'Receive Offer Letter',
-          description: 'University issues conditional or unconditional offer letter',
-          duration: '1-2 weeks',
-        },
-        {
-          number: 4,
-          title: 'Visa Application',
-          description: 'Apply online through ImmiAccount with CoE and supporting documents',
-          duration: '1-3 months',
-        },
-        {
-          number: 5,
-          title: 'Visa Grant & Travel',
-          description: 'Receive visa grant notification and arrange travel to Australia',
-          duration: '2 weeks',
-        },
-      ],
-    },
-
+  {
+    slug: "japan",
+    name: "Japan",
+    flag: "🇯🇵",
+    tagline: "Innovation meets tradition",
+    heroDescription: "Japan offers cutting-edge technology education, rich cultural experiences, and surprisingly affordable tuition with generous scholarship programs.",
+    whyStudy: [
+      { title: "Affordable Education", description: "National universities charge significantly lower tuition than Western countries.", icon: "GraduationCap" },
+      { title: "MEXT Scholarships", description: "Japanese government fully-funded scholarships covering tuition, living, and airfare.", icon: "Award" },
+      { title: "Technology Hub", description: "Home to global tech giants — Sony, Toyota, Honda, Nintendo, and more.", icon: "Globe" },
+      { title: "Safe & Clean", description: "One of the safest countries with excellent public transport and healthcare.", icon: "Briefcase" },
+    ],
     costs: {
-      tuitionRange: 'AUD $15,000 - $45,000 per year',
-      livingCost: 'AUD $18,000 - $25,000 per year',
-      totalEstimate: 'AUD $33,000 - $70,000 per year',
-      scholarships: 'Australian government and university scholarships available',
+      tuitionRange: "NPR 5,00,000 – NPR 15,00,000/year",
+      livingRange: "NPR 8,00,000 – NPR 15,00,000/year",
+      note: "Tokyo is more expensive. Cities like Osaka, Fukuoka, and Sendai are more affordable.",
     },
-
-    universities: [
-      {
-        name: 'University of Melbourne',
-        ranking: '#37 Worldwide',
-        specialization: 'Medicine, Engineering, Business',
-      },
-      {
-        name: 'Australian National University',
-        ranking: '##54 Worldwide',
-        specialization: 'Science, Engineering, Policy',
-      },
-      {
-        name: 'University of Sydney',
-        ranking: '#60 Worldwide',
-        specialization: 'Medicine, Law, Engineering',
-      },
-      {
-        name: 'UNSW Sydney',
-        ranking: '#=84 Worldwide',
-        specialization: 'Engineering, Business, Science',
-      },
-      {
-        name: 'Monash University',
-        ranking: '#=54 Worldwide',
-        specialization: 'Engineering, Medicine, Law',
-      },
+    requirements: [
+      "Academic transcripts and certificates",
+      "JLPT N2–N5 (for Japanese-taught programs) or IELTS/TOEFL (English programs)",
+      "EJU score (for some universities)",
+      "Statement of Purpose",
+      "Letters of Recommendation",
+      "Valid passport",
     ],
-
-    faqs: [
-      {
-        question: 'What is the IELTS requirement for Australian universities?',
-        answer: 'Most universities require IELTS 6.0-7.0 overall. Medical and law programs may require higher scores of 7.0-7.5.',
-      },
-      {
-        question: 'Can international students work in Australia?',
-        answer: 'Yes, Student visa holders can work up to 20 hours per week during semester and full-time during semester breaks.',
-      },
-      {
-        question: 'Is health insurance mandatory?',
-        answer: 'Yes, international students must have Overseas Student Health Cover (OSHC) which is approximately AUD $600-$800 per year.',
-      },
-      {
-        question: 'What is the cost of living in Australia?',
-        answer: 'Average living costs are AUD $18,000-$25,000 per year, depending on the city and lifestyle. Sydney and Melbourne are more expensive.',
-      },
-      {
-        question: 'Can I extend my stay after graduation?',
-        answer: 'Yes, you can apply for the Graduate Temporary Visa (Subclass 485) which allows you to stay and work for 18 months to 3 years.',
-      },
+    visaSteps: [
+      { step: 1, title: "Apply to University", description: "Apply directly or through a language school pathway." },
+      { step: 2, title: "Receive CoE", description: "University applies for Certificate of Eligibility on your behalf." },
+      { step: 3, title: "Visa Application", description: "Submit visa application at Japanese Embassy with CoE." },
+      { step: 4, title: "Visa Issuance", description: "Processing takes 5–10 business days." },
+      { step: 5, title: "Pre-Departure", description: "Arrange accommodation and attend orientation briefing." },
     ],
+    intakes: [
+      { name: "April (Main Intake)", months: "Apr – Sep", popularity: "Major" },
+      { name: "October", months: "Oct – Mar", popularity: "Major" },
+      { name: "January (Language Schools)", months: "Jan – Mar", popularity: "Minor" },
+    ],
+    workOpportunities: {
+      partTime: "28 hours per week during semester",
+      postStudy: "1-year job-seeking visa after graduation",
+      details: [
+        "Up to 28 hours/week part-time work permitted",
+        "Full-time work allowed during holidays",
+        "1-year designated activities visa for job hunting",
+        "High demand for bilingual professionals",
+        "Many companies offer sponsored work visas",
+      ],
+    },
   },
-
-  'japan': {
-    id: 'japan',
-    name: 'Japan',
-    slug: 'japan',
-    image: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    description: 'Blend of tradition and cutting-edge innovation',
-    overview: 'Japan is an excellent destination for international students seeking a unique education experience. With over 100 universities offering high-quality education at affordable costs, Japan provides opportunities in engineering, technology, and humanities.',
-    highlights: ['Todai', 'Kyoto', 'Osaka', 'Tokyo Tech', 'Waseda'],
-    universityCount: 100,
-    color: 'from-red-500 to-orange-400',
-
-    visa: {
-      title: 'Student Visa',
-      types: [
-        {
-          name: 'College of Technology Student Visa',
-          duration: '2-4 years',
-          description: 'For students pursuing undergraduate studies in Japanese institutions',
-          requirements: [
-            'High school diploma or equivalent',
-            'Japanese language proficiency (N4-N3 level)',
-            'Proof of financial support (JPY 3-4 million annually)',
-            'Letter of recommendation',
-            'Health certificate',
-          ],
-        },
-        {
-          name: 'Graduate Student Visa',
-          duration: '2-3 years',
-          description: 'For students pursuing master&apos;s or doctoral degrees',
-          requirements: [
-            'Bachelor&apos;s degree or equivalent',
-            'Research proposal',
-            'Language proficiency',
-            'Financial documents',
-            'Academic transcripts',
-          ],
-        },
-      ],
-    },
-
-    process: {
-      title: 'Application Process',
-      steps: [
-        {
-          number: 1,
-          title: 'Language Preparation',
-          description: 'Prepare Japanese language skills - at least N4 level (JLPT) is recommended',
-          duration: '6-12 months',
-        },
-        {
-          number: 2,
-          title: 'University Selection & Application',
-          description: 'Apply directly to universities or through their international student portal',
-          duration: '2-3 months',
-        },
-        {
-          number: 3,
-          title: 'Receive Admission',
-          description: 'University issues admission letter and documents for visa application',
-          duration: '1-2 months',
-        },
-        {
-          number: 4,
-          title: 'Visa Application',
-          description: 'Submit documents to Japanese embassy/consulate including Certificate of Eligibility',
-          duration: '1-2 months',
-        },
-        {
-          number: 5,
-          title: 'Travel & Enrollment',
-          description: 'Obtain visa and travel to Japan to begin your studies',
-          duration: '2 weeks',
-        },
-      ],
-    },
-
+  {
+    slug: "usa",
+    name: "United States",
+    flag: "🇺🇸",
+    tagline: "The land of limitless possibilities",
+    heroDescription: "The USA hosts the most top-ranked universities globally, offering unmatched research facilities, diverse campus life, and vast career opportunities.",
+    whyStudy: [
+      { title: "Global #1 Universities", description: "MIT, Harvard, Stanford — the USA dominates global university rankings.", icon: "GraduationCap" },
+      { title: "OPT Work Program", description: "12–36 months of Optional Practical Training after graduation.", icon: "Briefcase" },
+      { title: "Research Opportunities", description: "Largest R&D spending globally with cutting-edge labs and facilities.", icon: "Globe" },
+      { title: "Financial Aid", description: "Generous assistantships, fellowships, and need-based aid available.", icon: "Award" },
+    ],
     costs: {
-      tuitionRange: 'JPY 520,800 - 1,425,600 per year',
-      livingCost: 'JPY 1,500,000 - 2,000,000 per year',
-      totalEstimate: 'JPY 2,020,800 - 3,425,600 per year',
-      scholarships: 'MEXT, ADB, and university scholarships available (often cover full tuition)',
+      tuitionRange: "NPR 25,00,000 – NPR 70,00,000/year",
+      livingRange: "NPR 12,00,000 – NPR 25,00,000/year",
+      note: "Community colleges offer affordable pathways at NPR 8–15 lakhs/year.",
     },
-
-    universities: [
-      {
-        name: 'University of Tokyo (Todai)',
-        ranking: '#=39 Worldwide',
-        specialization: 'Engineering, Science, Medicine',
-      },
-      {
-        name: 'Kyoto University',
-        ranking: '#61 Worldwide',
-        specialization: 'Science, Engineering, Humanities',
-      },
-      {
-        name: 'Osaka University',
-        ranking: '#=75 Worldwide',
-        specialization: 'Engineering, Science, Medicine',
-      },
-      {
-        name: 'Tokyo Institute of Technology',
-        ranking: '#=139 Worldwide',
-        specialization: 'Engineering, Science, Technology',
-      },
-      {
-        name: 'Waseda University',
-        ranking: '#=200 Worldwide',
-        specialization: 'Business, Engineering, Arts',
-      },
+    requirements: [
+      "Academic transcripts (SLC/SEE, +2, Bachelor's)",
+      "TOEFL iBT 80+ or IELTS 6.5+",
+      "SAT/GRE/GMAT (program dependent)",
+      "Statement of Purpose & Essays",
+      "Letters of Recommendation (2–3)",
+      "Financial documents (I-20 requirement)",
+      "Valid passport",
     ],
-
-    faqs: [
-      {
-        question: 'Do I need to speak Japanese to study in Japan?',
-        answer: 'While many programs are offered in English, studying Japanese is highly recommended for daily life. N4 level (JLPT) is typically required for university programs.',
-      },
-      {
-        question: 'What are the costs of studying in Japan?',
-        answer: 'Japan is relatively affordable. Total costs (tuition + living) range from JPY 2-3.4 million per year. Scholarships like MEXT often cover full tuition.',
-      },
-      {
-        question: 'Can I work while studying in Japan?',
-        answer: 'Yes, international students can work up to 20 hours per week during school terms and full-time during holidays. Work permit required.',
-      },
-      {
-        question: 'What is the JLPT requirement?',
-        answer: 'Most universities require N4 to N3 level for undergraduate studies and N2-N1 for graduate programs in Japanese-taught courses.',
-      },
-      {
-        question: 'Are there scholarships for international students?',
-        answer: 'Yes, MEXT scholarships cover full tuition and living stipend. Many universities also offer their own scholarships with partial or full coverage.',
-      },
+    visaSteps: [
+      { step: 1, title: "Get Accepted", description: "Receive I-20 form from a SEVP-certified institution." },
+      { step: 2, title: "Pay SEVIS Fee", description: "Pay the I-901 SEVIS fee online." },
+      { step: 3, title: "Schedule Interview", description: "Book F-1 visa interview at US Embassy." },
+      { step: 4, title: "Prepare Documents", description: "Gather financial proof, I-20, transcripts, and test scores." },
+      { step: 5, title: "Attend Interview", description: "Visit the US Embassy for your visa interview." },
+      { step: 6, title: "Receive Visa", description: "If approved, receive your passport with F-1 visa stamp." },
     ],
+    intakes: [
+      { name: "Fall (Main Intake)", months: "Aug – Dec", popularity: "Major" },
+      { name: "Spring", months: "Jan – May", popularity: "Major" },
+      { name: "Summer", months: "May – Aug", popularity: "Minor" },
+    ],
+    workOpportunities: {
+      partTime: "20 hours per week on-campus during semester",
+      postStudy: "12 months OPT (36 months for STEM)",
+      details: [
+        "On-campus employment up to 20 hrs/week",
+        "CPT for internships during study",
+        "12-month OPT after graduation",
+        "STEM graduates get 36-month OPT extension",
+        "H-1B work visa sponsorship opportunities",
+      ],
+    },
   },
-};
+  {
+    slug: "uk",
+    name: "United Kingdom",
+    flag: "🇬🇧",
+    tagline: "Centuries of academic excellence",
+    heroDescription: "The UK offers world-renowned education with shorter course durations, saving you time and money while earning a globally respected degree.",
+    whyStudy: [
+      { title: "Shorter Courses", description: "Bachelor's in 3 years, Master's in 1 year — saving time and money.", icon: "GraduationCap" },
+      { title: "Graduate Route Visa", description: "2-year post-study work visa for Bachelor's & Master's graduates.", icon: "Briefcase" },
+      { title: "Prestigious Institutions", description: "Oxford, Cambridge, Imperial — centuries of academic tradition.", icon: "Globe" },
+      { title: "Chevening Scholarships", description: "UK government's global scholarship programme for future leaders.", icon: "Award" },
+    ],
+    costs: {
+      tuitionRange: "NPR 20,00,000 – NPR 55,00,000/year",
+      livingRange: "NPR 15,00,000 – NPR 22,00,000/year",
+      note: "London costs ~30% more than other UK cities like Manchester or Birmingham.",
+    },
+    requirements: [
+      "Academic transcripts and certificates",
+      "IELTS 6.0–7.0 overall (or PTE equivalent)",
+      "Statement of Purpose",
+      "Letters of Recommendation",
+      "Portfolio (for art/design courses)",
+      "Valid passport",
+    ],
+    visaSteps: [
+      { step: 1, title: "Apply via UCAS/Direct", description: "Undergraduate via UCAS; postgraduate directly to universities." },
+      { step: 2, title: "Receive CAS", description: "Get Confirmation of Acceptance for Studies from your university." },
+      { step: 3, title: "Prepare Finances", description: "Show tuition + 9 months living costs in your bank account." },
+      { step: 4, title: "Apply for Student Visa", description: "Submit Tier 4 (Student) visa application online." },
+      { step: 5, title: "Biometrics", description: "Attend biometrics appointment at VFS Global centre." },
+      { step: 6, title: "Visa Decision", description: "Standard processing takes 3–4 weeks." },
+    ],
+    intakes: [
+      { name: "September (Main Intake)", months: "Sep – Jun", popularity: "Major" },
+      { name: "January", months: "Jan – Sep", popularity: "Major" },
+      { name: "May (Limited)", months: "May – Dec", popularity: "Minor" },
+    ],
+    workOpportunities: {
+      partTime: "20 hours per week during term time",
+      postStudy: "2-year Graduate Route visa",
+      details: [
+        "20 hours/week part-time during term",
+        "Full-time work during holidays",
+        "2-year Graduate Route visa after graduation",
+        "PhD graduates get 3-year Graduate Route",
+        "Skilled Worker visa sponsorship pathway",
+      ],
+    },
+  },
+  {
+    slug: "canada",
+    name: "Canada",
+    flag: "🇨🇦",
+    tagline: "Your pathway to permanent residency",
+    heroDescription: "Canada combines excellent education with the most immigrant-friendly policies, offering clear pathways from student visa to permanent residency.",
+    whyStudy: [
+      { title: "PR Pathway", description: "One of the easiest countries to get permanent residency after studies.", icon: "Globe" },
+      { title: "Affordable Tuition", description: "Lower tuition than USA/UK with high quality of education.", icon: "GraduationCap" },
+      { title: "PGWP Program", description: "Post-Graduation Work Permit for up to 3 years after graduation.", icon: "Briefcase" },
+      { title: "Safe & Welcoming", description: "Consistently ranked among the safest and most welcoming countries.", icon: "Award" },
+    ],
+    costs: {
+      tuitionRange: "NPR 15,00,000 – NPR 40,00,000/year",
+      livingRange: "NPR 10,00,000 – NPR 18,00,000/year",
+      note: "Provinces like Manitoba, Saskatchewan offer lower living costs than Toronto/Vancouver.",
+    },
+    requirements: [
+      "Academic transcripts and certificates",
+      "IELTS 6.0–6.5 overall (or PTE/TOEFL equivalent)",
+      "Statement of Purpose",
+      "Letters of Recommendation",
+      "GIC (Guaranteed Investment Certificate) — CAD $20,635",
+      "Valid passport",
+    ],
+    visaSteps: [
+      { step: 1, title: "Get Admission", description: "Apply and receive Letter of Acceptance from a DLI." },
+      { step: 2, title: "Arrange GIC", description: "Purchase a Guaranteed Investment Certificate from a Canadian bank." },
+      { step: 3, title: "Medical Exam", description: "Complete medical examination from panel physician." },
+      { step: 4, title: "Apply for Study Permit", description: "Submit application online through IRCC portal." },
+      { step: 5, title: "Biometrics", description: "Provide biometrics at VFS Global centre." },
+      { step: 6, title: "Visa Decision", description: "Processing takes 8–16 weeks from Nepal." },
+    ],
+    intakes: [
+      { name: "September (Fall)", months: "Sep – Dec", popularity: "Major" },
+      { name: "January (Winter)", months: "Jan – Apr", popularity: "Major" },
+      { name: "May (Summer)", months: "May – Aug", popularity: "Minor" },
+    ],
+    workOpportunities: {
+      partTime: "20 hours per week during semester",
+      postStudy: "Up to 3-year PGWP",
+      details: [
+        "20 hours/week off-campus work during studies",
+        "Full-time work during scheduled breaks",
+        "PGWP duration matches program length (up to 3 years)",
+        "Canadian Experience Class (CEC) PR pathway",
+        "Provincial Nominee Program (PNP) options",
+      ],
+    },
+  },
+  {
+    slug: "new-zealand",
+    name: "New Zealand",
+    flag: "🇳🇿",
+    tagline: "Quality education in paradise",
+    heroDescription: "New Zealand offers a relaxed lifestyle, globally recognized qualifications, and excellent post-study work rights in one of the most beautiful countries on Earth.",
+    whyStudy: [
+      { title: "All 8 Universities Ranked", description: "Every New Zealand university is in the global top 3% — QS ranked.", icon: "GraduationCap" },
+      { title: "3-Year Work Visa", description: "Post-study work visa for up to 3 years after graduation.", icon: "Briefcase" },
+      { title: "Safe & Beautiful", description: "Ranked #2 most peaceful country with stunning natural landscapes.", icon: "Globe" },
+      { title: "NZ Excellence Awards", description: "Government and university scholarships for international students.", icon: "Award" },
+    ],
+    costs: {
+      tuitionRange: "NPR 15,00,000 – NPR 35,00,000/year",
+      livingRange: "NPR 12,00,000 – NPR 20,00,000/year",
+      note: "Wellington and Christchurch are more affordable than Auckland.",
+    },
+    requirements: [
+      "Academic transcripts and certificates",
+      "IELTS 6.0–6.5 overall (or PTE/TOEFL)",
+      "Statement of Purpose",
+      "Letters of Recommendation",
+      "Financial proof (NZD $20,000/year living costs)",
+      "Valid passport",
+    ],
+    visaSteps: [
+      { step: 1, title: "Choose Course", description: "Apply to NZQA-approved institution." },
+      { step: 2, title: "Receive Offer", description: "Get offer of place and pay tuition deposit." },
+      { step: 3, title: "Medical & Insurance", description: "Complete medical exam and arrange health insurance." },
+      { step: 4, title: "Apply for Visa", description: "Submit student visa application online." },
+      { step: 5, title: "Visa Decision", description: "Processing takes 4–8 weeks." },
+    ],
+    intakes: [
+      { name: "February (Semester 1)", months: "Feb – Jun", popularity: "Major" },
+      { name: "July (Semester 2)", months: "Jul – Nov", popularity: "Major" },
+    ],
+    workOpportunities: {
+      partTime: "20 hours per week during semester",
+      postStudy: "Up to 3-year post-study work visa",
+      details: [
+        "20 hours/week during term time",
+        "Full-time during holidays",
+        "1–3 year post-study work visa based on qualification",
+        "Pathway to residency through Skilled Migrant Category",
+        "Partner work visa available for Level 7+ students",
+      ],
+    },
+  },
+];
 
-export function getCountryData(slug: string): CountryData | null {
-  return countriesData[slug] || null;
+export function getCountryData(slug: string): CountryData | undefined {
+  return countries.find((country) => country.slug === slug);
 }
 
-export function getAllCountries() {
-  return Object.values(countriesData);
+export function getAllCountries(): CountryData[] {
+  return countries;
 }

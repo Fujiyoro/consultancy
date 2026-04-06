@@ -9,6 +9,12 @@ export interface CountryData {
   universityCount: number;
   color: string;
 
+  whyStudy?: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+
   visa: {
     title: string;
     types: Array<{
@@ -34,7 +40,22 @@ export interface CountryData {
     livingCost: string;
     totalEstimate: string;
     scholarships: string;
+    note?: string;
   };
+
+  requirements?: string[];
+
+  visaSteps?: Array<{
+    step: number;
+    title: string;
+    description: string;
+  }>;
+
+  intakes?: Array<{
+    name: string;
+    months: string;
+    popularity: string;
+  }>;
 
   universities: Array<{
     name: string;

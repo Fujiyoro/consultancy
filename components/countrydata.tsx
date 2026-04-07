@@ -66,8 +66,17 @@ export interface CountryData {
     icon: string;
   }>;
 
+  detailedCosts?: Array<{
+    item: string;
+    minAmount: string;
+    maxAmount: string;
+    average: string;
+    notes?: string;
+  }>;
+
   costCurrency?: string;
   costNote?: string;
+  totalEstimate?: string;
   requirements?: string[];
 }
 
@@ -398,7 +407,67 @@ export const countriesData: Record<string, CountryData> = {
     ],
 
     costCurrency: 'AUD',
-    costNote: 'Costs vary by city - Melbourne & Sydney are more expensive than Adelaide or Brisbane.',
+    costNote: 'Living costs vary significantly based on location - Sydney and Melbourne are the most expensive.',
+    totalEstimate: 'AUD 33,000 - AUD 70,000 per year',
+
+    detailedCosts: [
+      {
+        item: 'Bachelor Degree Tuition (Per Year)',
+        minAmount: 'AUD 15,000',
+        maxAmount: 'AUD 45,000',
+        average: 'AUD 30,000',
+        notes: 'STEM fields typically more expensive than humanities',
+      },
+      {
+        item: 'Master Degree Tuition (Per Year)',
+        minAmount: 'AUD 20,000',
+        maxAmount: 'AUD 55,000',
+        average: 'AUD 37,500',
+        notes: 'Research programs may have different fee structures',
+      },
+      {
+        item: 'Overseas Student Health Cover (Per Year)',
+        minAmount: 'AUD 600',
+        maxAmount: 'AUD 1,000',
+        average: 'AUD 800',
+        notes: 'Mandatory for all international students',
+      },
+      {
+        item: 'Accommodation (Monthly)',
+        minAmount: 'AUD 800',
+        maxAmount: 'AUD 1,600',
+        average: 'AUD 1,200',
+        notes: 'Sydney and Melbourne are more expensive',
+      },
+      {
+        item: 'Food & Groceries (Monthly)',
+        minAmount: 'AUD 300',
+        maxAmount: 'AUD 600',
+        average: 'AUD 450',
+        notes: 'Cooking at home saves significantly',
+      },
+      {
+        item: 'Transportation (Monthly)',
+        minAmount: 'AUD 50',
+        maxAmount: 'AUD 150',
+        average: 'AUD 100',
+        notes: 'Student concession cards available in all states',
+      },
+      {
+        item: 'Utilities & Internet (Monthly)',
+        minAmount: 'AUD 100',
+        maxAmount: 'AUD 200',
+        average: 'AUD 150',
+        notes: 'Depends on accommodation type',
+      },
+      {
+        item: 'Books & Course Materials (Per Year)',
+        minAmount: 'AUD 500',
+        maxAmount: 'AUD 2,000',
+        average: 'AUD 1,250',
+        notes: 'E-textbooks and library resources can reduce costs',
+      },
+    ],
 
     requirements: [
       'Academic transcripts and certificates (SLC/SEE, +2 Bachelor&apos;s)',
@@ -406,205 +475,6 @@ export const countriesData: Record<string, CountryData> = {
       'Statement of Purpose (SOP)',
       'Letters of Recommendation (LOR)',
       'Financial proof (GTE requirement)',
-      'Valid passport',
-    ],
-  },
-
-  'japan': {
-    id: 'japan',
-    name: 'Japan',
-    slug: 'japan',
-    image: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    description: 'Blend of tradition and cutting-edge innovation',
-    overview: 'Japan is an excellent destination for international students seeking a unique education experience. With over 100 universities offering high-quality education at affordable costs, Japan provides opportunities in engineering, technology, and humanities.',
-    highlights: ['Todai', 'Kyoto', 'Osaka', 'Tokyo Tech', 'Waseda'],
-    universityCount: 100,
-    color: 'from-red-500 to-orange-400',
-
-    visa: {
-      title: 'Student Visa',
-      types: [
-        {
-          name: 'College of Technology Student Visa',
-          duration: '2-4 years',
-          description: 'For students pursuing undergraduate studies in Japanese institutions',
-          requirements: [
-            'High school diploma or equivalent',
-            'Japanese language proficiency (N4-N3 level)',
-            'Proof of financial support (JPY 3-4 million annually)',
-            'Letter of recommendation',
-            'Health certificate',
-          ],
-        },
-        {
-          name: 'Graduate Student Visa',
-          duration: '2-3 years',
-          description: 'For students pursuing master&apos;s or doctoral degrees',
-          requirements: [
-            'Bachelor&apos;s degree or equivalent',
-            'Research proposal',
-            'Language proficiency',
-            'Financial documents',
-            'Academic transcripts',
-          ],
-        },
-      ],
-    },
-
-    process: {
-      title: 'Application Process',
-      steps: [
-        {
-          number: 1,
-          title: 'Language Preparation',
-          description: 'Prepare Japanese language skills - at least N4 level (JLPT) is recommended',
-          duration: '6-12 months',
-        },
-        {
-          number: 2,
-          title: 'University Selection & Application',
-          description: 'Apply directly to universities or through their international student portal',
-          duration: '2-3 months',
-        },
-        {
-          number: 3,
-          title: 'Receive Admission',
-          description: 'University issues admission letter and documents for visa application',
-          duration: '1-2 months',
-        },
-        {
-          number: 4,
-          title: 'Visa Application',
-          description: 'Submit documents to Japanese embassy/consulate including Certificate of Eligibility',
-          duration: '1-2 months',
-        },
-        {
-          number: 5,
-          title: 'Travel & Enrollment',
-          description: 'Obtain visa and travel to Japan to begin your studies',
-          duration: '2 weeks',
-        },
-      ],
-    },
-
-    costs: {
-      tuitionRange: 'JPY 520,800 - 1,425,600 per year',
-      livingCost: 'JPY 1,500,000 - 2,000,000 per year',
-      totalEstimate: 'JPY 2,020,800 - 3,425,600 per year',
-      scholarships: 'MEXT, ADB, and university scholarships available (often cover full tuition)',
-    },
-
-    universities: [
-      {
-        name: 'University of Tokyo (Todai)',
-        ranking: '#=39 Worldwide',
-        specialization: 'Engineering, Science, Medicine',
-      },
-      {
-        name: 'Kyoto University',
-        ranking: '#61 Worldwide',
-        specialization: 'Science, Engineering, Humanities',
-      },
-      {
-        name: 'Osaka University',
-        ranking: '#=75 Worldwide',
-        specialization: 'Engineering, Science, Medicine',
-      },
-      {
-        name: 'Tokyo Institute of Technology',
-        ranking: '#=139 Worldwide',
-        specialization: 'Engineering, Science, Technology',
-      },
-      {
-        name: 'Waseda University',
-        ranking: '#=200 Worldwide',
-        specialization: 'Business, Engineering, Arts',
-      },
-    ],
-
-    faqs: [
-      {
-        question: 'Do I need to speak Japanese to study in Japan?',
-        answer: 'While many programs are offered in English, studying Japanese is highly recommended for daily life. N4 level (JLPT) is typically required for university programs.',
-      },
-      {
-        question: 'What are the costs of studying in Japan?',
-        answer: 'Japan is relatively affordable. Total costs (tuition + living) range from JPY 2-3.4 million per year. Scholarships like MEXT often cover full tuition.',
-      },
-      {
-        question: 'Can I work while studying in Japan?',
-        answer: 'Yes, international students can work up to 20 hours per week during school terms and full-time during holidays. Work permit required.',
-      },
-      {
-        question: 'What is the JLPT requirement?',
-        answer: 'Most universities require N4 to N3 level for undergraduate studies and N2-N1 for graduate programs in Japanese-taught courses.',
-      },
-      {
-        question: 'Are there scholarships for international students?',
-        answer: 'Yes, MEXT scholarships cover full tuition and living stipend. Many universities also offer their own scholarships with partial or full coverage.',
-      },
-    ],
-
-    countryHighlights: [
-      {
-        title: 'World-Class Universities',
-        description: 'Seven universities in the global top 100 including University of Tokyo, Kyoto, and Osaka offering excellent programs.',
-        icon: 'graduation',
-      },
-      {
-        title: 'Post-Study Work Visa',
-        description: 'Eligible graduates can apply for a 1-year work visa to gain Japanese professional experience.',
-        icon: 'work',
-      },
-      {
-        title: 'Rich Culture & Innovation',
-        description: 'Experience a blend of traditional culture and cutting-edge technology in a safe, vibrant environment.',
-        icon: 'globe',
-      },
-      {
-        title: 'Affordable Education',
-        description: 'Excellent scholarships including MEXT that cover tuition and living expenses for international students.',
-        icon: 'award',
-      },
-    ],
-
-    intakes: [
-      {
-        name: 'April (Semester 1)',
-        period: 'Apr - Aug',
-        months: 'April - September',
-        type: 'Major intake',
-      },
-      {
-        name: 'September (Semester 2)',
-        period: 'Sep - Mar',
-        months: 'September - March',
-        type: 'Minor intake',
-      },
-    ],
-
-    costBreakdown: [
-      {
-        category: 'Tuition Fee',
-        range: 'JPY 520,800 - JPY 1,425,600 per year',
-        icon: 'tuition',
-      },
-      {
-        category: 'Living Cost',
-        range: 'JPY 1,500,000 - JPY 2,000,000 per year',
-        icon: 'living',
-      },
-    ],
-
-    costCurrency: 'JPY',
-    costNote: 'Many universities offer tuition-free programs for international students with MEXT and other scholarships.',
-
-    requirements: [
-      'Academic transcripts and certificates (High School or Bachelor degree)',
-      'Japanese Language Proficiency (JLPT N4-N3 for undergraduate, N2-N1 for graduate)',
-      'Statement of Purpose (SOP)',
-      'Letters of Recommendation (2-3 letters)',
-      'Financial proof (Bank statements showing JPY 3-4 million)',
       'Valid passport',
     ],
   },
@@ -802,6 +672,66 @@ export const countriesData: Record<string, CountryData> = {
 
     costCurrency: 'GBP',
     costNote: 'Living costs vary significantly based on location - London is the most expensive city for accommodation and expenses.',
+    totalEstimate: 'GBP 22,000 - GBP 48,000 per year',
+
+    detailedCosts: [
+      {
+        item: 'Undergraduate Tuition (Per Year)',
+        minAmount: 'GBP 10,000',
+        maxAmount: 'GBP 25,000',
+        average: 'GBP 17,500',
+        notes: 'Subject to Home Office limits; some programs more expensive',
+      },
+      {
+        item: 'Postgraduate Tuition (Per Year)',
+        minAmount: 'GBP 12,000',
+        maxAmount: 'GBP 30,000',
+        average: 'GBP 21,000',
+        notes: 'Master&apos;s and PhD programs vary significantly',
+      },
+      {
+        item: 'Accommodation (Monthly)',
+        minAmount: 'GBP 400',
+        maxAmount: 'GBP 900',
+        average: 'GBP 650',
+        notes: 'London is significantly more expensive than other cities',
+      },
+      {
+        item: 'Food & Groceries (Monthly)',
+        minAmount: 'GBP 200',
+        maxAmount: 'GBP 400',
+        average: 'GBP 300',
+        notes: 'Budget supermarkets available; meal planning saves money',
+      },
+      {
+        item: 'Transportation (Monthly)',
+        minAmount: 'GBP 30',
+        maxAmount: 'GBP 150',
+        average: 'GBP 90',
+        notes: 'Student railcards and bus passes provide discounts',
+      },
+      {
+        item: 'Utilities & Council Tax (Monthly)',
+        minAmount: 'GBP 80',
+        maxAmount: 'GBP 200',
+        average: 'GBP 140',
+        notes: 'May not apply if in university accommodation',
+      },
+      {
+        item: 'Phone & Internet (Monthly)',
+        minAmount: 'GBP 20',
+        maxAmount: 'GBP 50',
+        average: 'GBP 35',
+        notes: 'Many providers offer student discounts',
+      },
+      {
+        item: 'Books & Course Materials (Per Year)',
+        minAmount: 'GBP 500',
+        maxAmount: 'GBP 1,500',
+        average: 'GBP 1,000',
+        notes: 'University library and e-resources significantly reduce costs',
+      },
+    ],
 
     requirements: [
       'Academic transcripts and certificates (SLC/SEE, +2 Bachelor&apos;s)',

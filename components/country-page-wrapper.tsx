@@ -49,10 +49,11 @@ export function CountryPageWrapper({ country }: { country: Country }) {
           <CountryIntakes intakes={country.intakes} />
         )}
 
-        {country.costBreakdown && (
+        {country.detailedCosts && (
           <CountryCosts 
-            costs={country.costBreakdown}
+            costs={country.detailedCosts}
             currency={country.costCurrency || 'USD'}
+            totalEstimate={country.totalEstimate}
             note={country.costNote}
           />
         )}

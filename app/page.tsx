@@ -10,7 +10,6 @@ import VidMed from "@/components/vidmed";
 import FloatingServices from "@/components/popular";
 import Banner from "@/components/banner";
 import FAQPage from "@/components/faq";
-import { Destinations } from "@/components/destination";
 import { MapPin } from "lucide-react";
 import { Contact } from "@/components/contact";
 import { ContentSectionVariant1 } from "@/components/ui/content-section2";
@@ -95,8 +94,6 @@ export default function Home() {
           </ContentSectionVariant1>
         </div>
       </section>
-      <Destinations />
-
       <FAQPage />
 
       <Testimonials />
@@ -167,7 +164,7 @@ export default function Home() {
                 </li>
                 <li>
                   <a
-                    href="#destinations"
+                    href="/destinations"
                     className="text-white/70 hover:text-white transition-colors text-sm"
                   >
                     Destinations

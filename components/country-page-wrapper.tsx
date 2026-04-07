@@ -3,8 +3,12 @@
 import { Header } from '@/components/header-3';
 import { CountryHero } from '@/components/country-hero';
 import { CountryVisa } from '@/components/country-visa';
-
 import { CountryFAQ } from '@/components/country-faq'
+import { VisaSteps } from '@/components/visa-steps';
+import { CountryRequirements } from '@/components/country-requirements';
+import { CountryHighlights } from '@/components/country-highlights';
+import { CountryIntakes } from '@/components/country-intakes';
+import { CountryCosts } from '@/components/country-costs';
 import Link from 'next/link';
 import { ContentSectionVariant2 } from './ui/content-section';
 
@@ -23,6 +27,35 @@ export function CountryPageWrapper({ country }: { country: Country }) {
       <Header />
       <main>
         <CountryHero country={country} />
+        
+        {country.countryHighlights && (
+          <CountryHighlights 
+            title={`Why Study in ${country.name}`}
+            highlights={country.countryHighlights}
+            countryName={country.name}
+          />
+        )}
+
+        <VisaSteps 
+          steps={country.process.steps}
+          title={country.process.title}
+        />
+
+        {country.requirements && (
+          <CountryRequirements requirements={country.requirements} />
+        )}
+
+        {country.intakes && (
+          <CountryIntakes intakes={country.intakes} />
+        )}
+
+        {country.costBreakdown && (
+          <CountryCosts 
+            costs={country.costBreakdown}
+            currency={country.costCurrency || 'USD'}
+            note={country.costNote}
+          />
+        )}
      
         <CountryVisa country={country} />
        

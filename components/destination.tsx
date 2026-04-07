@@ -2,32 +2,33 @@
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const destinations = [
   {
-    name: 'United States',
-    universities: 2500,
-    image: 'https://images.unsplash.com/photo-1508433957232-3107f5fd5995?q=80&w=886&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Ds',
-    highlights: ['Harvard', 'MIT', 'Stanford'],
-    color: 'from-blue-600 to-blue-400',
+    name: 'Japan',
+    slug: 'japan',
+    universities: 100,
+    image: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    highlights: ['Todai', 'Kyoto', 'Osaka'],
+    color: 'from-red-500 to-orange-400',
   },
   {
     name: 'Australia',
+    slug: 'australia',
     universities: 43,
     image: 'https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Ds',
     highlights: ['Melbourne', 'Sydney', 'ANU'],
     color: 'from-yellow-600 to-orange-500',
   },
   {
-    name: 'Japan',
-    universities: 100,
-    image: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    highlights: ['Todai', 'Kyoto', 'Osaka'],
-    color: 'from-red-500 to-orange-400',
+    name: 'United Kingdom',
+    slug: 'united-kingdom',
+    universities: 130,
+    image: 'https://images.unsplash.com/photo-1535182519407-c6a3b6ba90b5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    highlights: ['Oxford', 'Cambridge', 'LSE'],
+    color: 'from-red-600 to-blue-500',
   },
- 
-
- 
 ];
 
 export function Destinations() {
@@ -88,13 +89,15 @@ export function Destinations() {
                   </div>
                 </div>
 
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full border-primary text-primary hover:bg-primary hover:text-white font-medium transition-all duration-300"
-                >
-                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <Link href={`/countries/${destination.slug}`} className="w-full block">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-white font-medium transition-all duration-300"
+                  >
+                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}

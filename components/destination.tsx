@@ -1,8 +1,9 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MapPin, Users } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const destinations = [
   {
@@ -11,7 +12,7 @@ const destinations = [
     universities: 100,
     image: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     highlights: ['Todai', 'Kyoto', 'Osaka'],
-    color: 'from-red-500 to-orange-400',
+    description: 'Experience a unique blend of traditional culture and cutting-edge innovation with world-class education.',
   },
   {
     name: 'Australia',
@@ -19,7 +20,7 @@ const destinations = [
     universities: 43,
     image: 'https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Ds',
     highlights: ['Melbourne', 'Sydney', 'ANU'],
-    color: 'from-yellow-600 to-orange-500',
+    description: 'Explore top-ranked universities in a vibrant, multicultural environment with stunning landscapes.',
   },
   {
     name: 'United Kingdom',
@@ -27,78 +28,99 @@ const destinations = [
     universities: 130,
     image: 'https://images.unsplash.com/photo-1535182519407-c6a3b6ba90b5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     highlights: ['Oxford', 'Cambridge', 'LSE'],
-    color: 'from-red-600 to-blue-500',
+    description: 'Study at prestigious universities with world-leading research and academic excellence.',
   },
 ];
 
 export function Destinations() {
-  return (
-    <section id="destinations" className="py-24 container bg-[#F7F9F9]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Header - Left aligned */}
-        <div className="max-w-3xl mb-20">
-          <p className="text-primary/60 text-sm font-medium uppercase tracking-widest mb-4">
-            Popular Destinations
-          </p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Study Abroad Opportunities
-          </h2>
-          <p className="text-lg text-foreground/70 leading-relaxed">
-            Access thousands of universities across the world&apos;s top educational hubs. We guide you to the perfect institution for your goals.
-          </p>
-        </div>
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-        {/* Destinations Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  return (
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Destinations - Full Screen Hero Layout */}
+        <div className="space-y-12">
           {destinations.map((destination, index) => (
             <div
               key={destination.name}
-              className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 animate-fadeInUp"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`group relative overflow-hidden rounded-2xl transition-all duration-500 ${
+                hoveredIndex === index ? 'ring-2 ring-primary/30' : ''
+              }`}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Image Background */}
-              <div className={`relative h-56 bg-gradient-to-br ${destination.color} overflow-hidden`}>
+              {/* Hero Image Background */}
+              <div className="relative h-96 md:h-80 overflow-hidden">
                 <img
                   src={destination.image}
                   alt={destination.name}
-                  className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-300"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent group-hover:from-black/40 transition-all duration-300" />
+                {/* Dark Overlay - Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 group-hover:from-black/70 group-hover:via-black/50 group-hover:to-black/30 transition-all duration-500" />
               </div>
 
-              {/* Content */}
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-1">
-                  {destination.name}
-                </h3>
-                <p className="text-primary font-medium mb-6 text-sm">
-                  {destination.universities} partner universities
-                </p>
+              {/* Content Overlay - Left aligned */}
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full px-8 md:px-16 py-8 md:py-12 max-w-2xl">
+                  {/* Destination Label */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <MapPin className="w-4 h-4 text-primary" />
+                    <span className="text-primary text-sm font-medium uppercase tracking-widest">
+                      Study Destination
+                    </span>
+                  </div>
 
-                {/* Top Universities */}
-                <div className="mb-8 border-l-2 border-accent pl-4">
-                  <p className="text-xs text-foreground/60 uppercase tracking-widest font-medium mb-3">
-                    Featured Universities
+                  {/* Country Name */}
+                  <h2 className="text-5xl md:text-6xl font-bold text-white mb-4 transition-all duration-300 group-hover:translate-x-2">
+                    {destination.name}
+                  </h2>
+
+                  {/* Description */}
+                  <p className="text-lg text-white/90 mb-8 max-w-xl leading-relaxed transition-all duration-300 group-hover:translate-x-1">
+                    {destination.description}
                   </p>
-                  <div className="space-y-2">
-                    {destination.highlights.map((uni) => (
-                      <p key={uni} className="text-foreground text-sm">
-                        {uni}
-                      </p>
-                    ))}
+
+                  {/* Stats */}
+                  <div className="flex flex-col sm:flex-row gap-8 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
+                        <Users className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-white/70 text-xs uppercase tracking-widest">Universities</p>
+                        <p className="text-2xl font-bold text-white">{destination.universities}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center">
+                        <span className="text-lg font-bold text-accent">★</span>
+                      </div>
+                      <div>
+                        <p className="text-white/70 text-xs uppercase tracking-widest">Top Schools</p>
+                        <p className="text-white font-semibold">{destination.highlights.join(' • ')}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="flex gap-4">
+                    <Link href={`/countries/${destination.slug}`} className="block">
+                      <Button
+                        size="lg"
+                        className="bg-primary hover:bg-primary/90 text-white font-semibold group/btn transition-all duration-300"
+                      >
+                        Explore {destination.name}
+                        <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
-
-                <Link href={`/countries/${destination.slug}`} className="w-full block">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-white font-medium transition-all duration-300"
-                  >
-                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
               </div>
+
+              {/* Right side accent - shows on hover */}
+              <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
         </div>
